@@ -75,4 +75,13 @@ describe('Home component', function () {
         expect(isolateScope.vm.updateBar).toHaveBeenCalledWith(10);
     });
 
+    it('should highlight the currently selected progress bar with active class', function(){
+        var el = compileTemplate('home-component');
+        httpBackend.flush();
+        var isolateScope = angular.element(el).isolateScope(),
+            progressBar = angular.element(el).find('progress-bar-component')[isolateScope.vm.progressBarId];
+            
+        expect(angular.element(progressBar).hasClass('active')).toBe(true);
+    });
+
 });
