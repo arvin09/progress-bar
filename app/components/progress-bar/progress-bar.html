@@ -1,0 +1,7 @@
+<div class="progress-bar">
+    <div class="bar" 
+        ng-class="vm.val <=100 ? 'with-in-limit': 'exceed-limit'" 
+        ng-style="{'width' : vm.val <=100 ? vm.val +'%': '100%'}">
+    </div>
+    <span class="text">{{vm.val}}%</span> 
+</div>

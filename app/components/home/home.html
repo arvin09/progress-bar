@@ -1,0 +1,20 @@
+<div class="home" >
+    <progress-bar-component data-ng-repeat="bar in vm.config.bars track by $index"
+                  data-val="vm.getPercentageOfLimit(bar, vm.config.limit)"              
+                  class="bars bar{{ ::$index }}"
+                  data-ng-class="{'active':vm.progressBarId === $index}">
+    </progress-bar-component>
+
+    <select data-ng-model="vm.progressBarId">
+        <option data-ng-repeat="bar in vm.config.bars track by $index" 
+                data-ng-value='{{ ::$index }}'>
+                #bar-{{::$index+1}}
+        </option>
+    </select>
+
+    <button data-ng-repeat="button in vm.config.buttons track by $index"
+            data-ng-click = "vm.updateBar(button)"
+            class="button button-{{ ::$index }}">
+            {{button}}
+    </button>
+</div>
